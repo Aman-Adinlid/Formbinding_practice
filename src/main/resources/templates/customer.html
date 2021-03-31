@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Page</title>
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+
+</head>
+<div class="container p-3 my-3 bg-primary text-white">
+    <h1>Customer Page</h1>
+    <p>welcome our customers</p>
+</div>
+
+<body>
+<form action="#" th:action="@{/}" th:object="${customer}" method="post">
+    <table>
+        <tr>
+            <td>CustomerId:</td>
+            <td><input type="number" th:field="*{customerId}"/></td>
+            <td th:if="${#fields.hasErrors('customerId')}" th:errors="*{Id}">Name Error</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><input type="text" th:field="*{email}"/></td>
+            <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</td>
+        </tr>
+        <tr>
+            <td>RegDate:</td>
+            <td><input type="text" th:field="*{regDate}"/></td>
+            <td th:if="${#fields.hasErrors('regDate')}" th:errors="*{regDate}">RegDate Error</td>
+        </tr>
+        <tr>
+            <td>Active:</td>
+            <td><input type="text" th:field="*{active}"/></td>
+            <td th:if="${#fields.hasErrors('active')}" th:errors="*{active}">Active Error</td>
+        </tr>
+        <tr>
+            <td>Details:</td>
+            <td><input type="text" th:field="*{details}"/></td>
+            <td th:if="${#fields.hasErrors('details')}" th:errors="*{details}">Details Error</td>
+        </tr>
+        <tr>
+
+
+            <td>
+                <button type="submit" class="btn btn-primary btn-block mb-5">Submit</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
