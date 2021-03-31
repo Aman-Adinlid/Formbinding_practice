@@ -26,7 +26,7 @@ public class CustomerController implements WebMvcConfigurer {
     }
 
     @PostMapping("/")
-    public String checkPersonInfo(@Valid Customer customer, BindingResult bindingResult) {
+    public String checkCustomerInfo(@Valid Customer customer, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             return "customer";
