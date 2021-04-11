@@ -23,7 +23,7 @@
         <tr>
             <td>CustomerId:</td>
             <td><input type="number" th:field="*{customerId}"/></td>
-            <td th:if="${#fields.hasErrors('customerId')}" th:errors="*{Id}">Name Error</td>
+            <td th:if="${#fields.hasErrors('customerId')}" th:errors="*{customerId}">Name Error</td>
         </tr>
         <tr>
             <td>Email:</td>
@@ -49,10 +49,11 @@
 
 
             <td>
-                <button type="submit" class="btn btn-primary btn-block mb-5">Submit</button>
+                <button type="submit" class="btn btn-successes btn-block mb-5">Submit</button>
             </td>
         </tr>
     </table>
 </form>
+<footer>Copyright &copy; Aman 2021</footer>
 </body>
 </html>

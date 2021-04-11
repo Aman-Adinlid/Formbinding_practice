@@ -15,7 +15,6 @@ public class Customer {
     @AssertTrue(message = "Check if the customer is active or not")
     private boolean active;
     @NotNull
-    @Size(min = 5, max = 16)
     private CustomerDetails details;
 
     public Customer() {
