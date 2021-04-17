@@ -20,7 +20,7 @@ public class Customer {
     private String customerId;
 
 
-    @Size( max =80 ,message = "should be a well-formed email.")
+    @Size(max = 80, message = "should be a well-formed email.")
     @Column(nullable = false, length = 80)
     @NotNull
     private String email;
