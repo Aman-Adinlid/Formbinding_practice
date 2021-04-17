@@ -1,43 +1,57 @@
 package lexicon.se.practice.controller;
 
-import lexicon.se.practice.dto.Customer;
-
+import lexicon.se.practice.entity.Customer;
+import lexicon.se.practice.repository.CustomerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 @Controller
+@RequestMapping("/adding")
+public class CustomerController {
 
-public class CustomerController implements WebMvcConfigurer {
+    CustomerRepository customerRepository;
 
+    @Autowired
+    public void setCustomerRepository(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
 
+    @GetMapping("/addForm")
+    public String showCustomerForm(Model model) {
+        Customer customer = new Customer();
+        model.addAttribute("customer", customer);
+        return "customerForm";
 
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/results").setViewName("results");
     }
 
     @GetMapping("/")
-    public String showForm(Customer customer) {
-        return "customer";
+    public String getAll(Model model) {
+        List<Customer> customers = new ArrayList<>();
+        Iterator<Customer> iterator = customerRepository.findAll().iterator();
+        iterator.forEachRemaining(customers::add);
+        model.addAttribute("customers", customers);
+        return "showCustomerList";
     }
 
-    @GetMapping("/customer")
-    public String checkCustomerInfo(@Valid Customer customer, BindingResult bindingResult) {
-
+    @PostMapping("/add")
+    public String addCustomer(@ModelAttribute("customer") @Valid Customer customer, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+        System.out.println("customer = " + customer);
         if (bindingResult.hasErrors()) {
-            return "customer";
+            return "customerForm";
         }
+        return "redirect:/adding/";
 
-        return "redirect:/results";
-    }
-    
-    @GetMapping("/customerDetails")
-    public String ShowCustomerDetails(){
-        return "customerDetails";
     }
 }
