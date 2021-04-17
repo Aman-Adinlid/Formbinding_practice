@@ -8,7 +8,7 @@
     <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </head>
-</body>
+<body>
 <div class="container">
     <br/>
     <div class="card">
@@ -22,14 +22,16 @@
             <div class="col-sm-12">
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="text" th:field="*{email}" placeholder="Enter email Here..." class="form-control"/>
+                    <input type="text" th:field="*{email}" placeholder="Enter email Here..."
+                           class="form-control"/>
                     <p class="alert alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
                 </div>
             </div>
 
             <div class="form-group">
                 <label>Street</label>
-                <input type="text" th:field="*{details.street}" placeholder="Enter street name here"class="form-control" />
+                <input type="text" th:field="*{details.street}" placeholder="Enter street name here"
+                       class="form-control" />
                 <!--
                   <p class="alert alert-danger" th:if="${#fields.hasErrors('street')}" th:errors="*{details.street}"></p>
                   -->
@@ -37,35 +39,37 @@
 
             <div class="form-group">
                 <label>ZipCode</label>
-                <input type="number" th:field="*{details.zipCode}" placeholder="Enter zipCode here"class="form-control" />
+                <input type="number" th:field="*{details.zipCode}" placeholder="Enter zipCode here"
+                       class="form-control" />
             </div>
 
             <div class="form-group">
                 <label>City</label>
-                <input type="text" th:field="*{details.city}" placeholder="Enter City name here"class="form-control" />
+                <input type="text" th:field="*{details.city}" placeholder="Enter City name here"
+                       class="form-control" />
             </div>
 
             <div class="form-group">
                 <label>Home Phone</label>
-                <input type="number" th:field="*{details.homePhone}" placeholder="Enter number here"class="form-control" />
+                <input type="number" th:field="*{details.homePhone}" placeholder="Enter number here"
+                       class="form-control" />
             </div>
 
             <div class="form-group">
                 <label>Cell Phone</label>
-                <input type="number" th:field="*{details.cellPhone}" placeholder="Enter number here"class="form-control" />
+                <input type="number" th:field="*{details.cellPhone}" placeholder="Enter number here"
+                       class="form-control" />
             </div>
+
             <hr/>
             <button href="/adding/add" type="submit" class="btn btn-primary btn-block mb-3">Save</button>
         </form>
     </div>
-
-
 </div>
 
 <div class="card-footer">
     <button href="/adding/add"type="submit" class="btn btn-outline-danger">Back</button>
 </div>
-
 
 
 </body>
