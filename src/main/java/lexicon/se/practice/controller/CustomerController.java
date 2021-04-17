@@ -1,6 +1,7 @@
 package lexicon.se.practice.controller;
 
 import lexicon.se.practice.entity.Customer;
+import lexicon.se.practice.entity.CustomerDetails;
 import lexicon.se.practice.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -46,7 +46,7 @@ public class CustomerController {
     }
 
     @PostMapping("/add")
-    public String addCustomer(@ModelAttribute("customer") @Valid Customer customer, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+    public String addCustomer(@ModelAttribute("customer") @Valid Customer customer, BindingResult bindingResult) {
         System.out.println("customer = " + customer);
         if (bindingResult.hasErrors()) {
             return "customerForm";

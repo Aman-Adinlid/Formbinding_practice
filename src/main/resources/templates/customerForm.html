@@ -9,6 +9,8 @@
     <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </head>
 <body>
+<nav th:insert="fragments/navbar :: navbar_fragment"></nav>
+
 <div class="container">
     <br/>
     <div class="card">
@@ -33,7 +35,7 @@
                 <input type="text" th:field="*{details.street}" placeholder="Enter street name here"
                        class="form-control" />
                 <!--
-                  <p class="alert alert-danger" th:if="${#fields.hasErrors('street')}" th:errors="*{details.street}"></p>
+                <p class="alert alert-danger" th:if="${#fields.hasErrors('street')}" th:errors="*{details.street}"></p>
                   -->
             </div>
 
@@ -62,15 +64,15 @@
             </div>
 
             <hr/>
-            <button href="/adding/add" type="submit" class="btn btn-primary btn-block mb-3">Save</button>
+            <button type="submit" class="btn btn-primary btn-block mb-3">Save</button>
         </form>
     </div>
 </div>
 
 <div class="card-footer">
-    <button href="/adding/add"type="submit" class="btn btn-outline-danger">Back</button>
+    <button type="submit" class="btn btn-outline-danger">Back</button>
 </div>
 
-
+<footer th:insert="fragments/footer :: footer_fragment"></footer>
 </body>
 </html>
