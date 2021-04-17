@@ -18,6 +18,7 @@
 </div>
 
 <body>
+<nav th:insert="fragments/navbar" :: navbar_fragment></nav>
 <form action="#" th:action="@{/}" th:object="${customer}" method="post">
     <table>
         <tr>
@@ -54,6 +55,6 @@
         </tr>
     </table>
 </form>
-<footer>Copyright &copy; Aman 2021</footer>
+<footer th:insert="fragments/footer :: footer_fragment"></footer>
 </body>
 </html>

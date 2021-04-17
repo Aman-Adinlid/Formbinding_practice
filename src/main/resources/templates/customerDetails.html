@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Details Page</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2>Customer Details</h2>
+        </div>
+    </div>
+</div>
+<body>
+<nav th:insert="fragments/navbar ::navbar_fragment"></nav>
+
+<div class="card-body">
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="Id">DetailsId</label>
+                <input type="id" class="form-control" id="Id" placeholder=" Enter ID">
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label for="Address">Street</label>
+            <input type="text" class="form-control" id="Address" placeholder="Enter your Address">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="City">City</label>
+                <input type="text" class="form-control" id="City">
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="ZipCode">ZipCode</label>
+                <input type="text" class="form-control" id="ZipCode" placeholder="Zip">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="homePhone">Home phone</label>
+                <input type="tel" class="form-control" id="homePhone" placeholder="Enter your HomePhone">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="cellPhone">Cell phone</label>
+                <input type="tel" class="form-control" id="cellPhone" placeholder="Enter your CellPhone">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>
+
+<footer th:insert="fragments/footer :: footer_fragment"></footer>
+
+</body>
+</html>
