@@ -54,4 +54,22 @@ public class CustomerController {
         return "redirect:/adding/";
 
     }
-}
+
+    @GetMapping("/details")
+    public String showCustomerDetails(Model model) {
+        CustomerDetails customerDetails = new CustomerDetails();
+        model.addAttribute("customerDetails", customerDetails);
+        return "showCustomerDetails";
+    }
+
+   // @PostMapping("/addDetails")
+   // public String addCustomerDetails(@ModelAttribute("customerDetails") @Valid CustomerDetails customerDetails, BindingResult bindingResult) {
+      //  System.out.println("customerDetails = " + customerDetails);
+       // if (bindingResult.hasErrors()) {
+      //      return "showCustomerDetails";
+        }
+      //  return "redirect:/adding/addDetails";
+
+
+
+

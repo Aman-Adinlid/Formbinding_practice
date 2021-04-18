@@ -3,6 +3,7 @@ package lexicon.se.practice.entity;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.query.criteria.internal.expression.function.AggregationFunction;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -17,6 +18,7 @@ public class Customer {
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(nullable = false, updatable = false)
     @NotNull
+    @Size(max = 12)
     private String customerId;
 
 
@@ -30,7 +32,7 @@ public class Customer {
     @NotNull
     private LocalDate regDate;
 
-    @Column(nullable = false, columnDefinition = "tinyint(1) default 1")
+    @Column(nullable = true, columnDefinition = "tinyint(1) default 1")
     private boolean active;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

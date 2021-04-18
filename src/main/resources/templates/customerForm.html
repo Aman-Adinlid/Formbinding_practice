@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Customer Form</title>
@@ -9,8 +9,6 @@
     <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </head>
 <body>
-<nav th:insert="fragments/navbar :: navbar_fragment"></nav>
-
 <div class="container">
     <br/>
     <div class="card">
@@ -23,45 +21,35 @@
         <form th:action="@{/adding/add}" method="post" th:object="${customer}">
             <div class="col-sm-12">
                 <div class="form-group">
-                    <label>Email</label>
-                    <input type="text" th:field="*{email}" placeholder="Enter email Here..."
+                    <label>CustomerId</label>
+                    <input type="text" th:field="*{customerId}" placeholder="Enter id Here..."
                            class="form-control"/>
-                    <p class="alert alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                    <p class="alert alert-danger" th:if="${#fields.hasErrors('customerId')}"
+                       th:errors="*{customerId}"></p>
                 </div>
+
+                <label>Email</label>
+                <input type="text" th:field="*{email}" placeholder="Enter email Here..."
+                       class="form-control"/>
+                <p class="alert alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
             </div>
 
             <div class="form-group">
-                <label>Street</label>
-                <input type="text" th:field="*{details.street}" placeholder="Enter street name here"
-                       class="form-control" />
-                <!--
-                <p class="alert alert-danger" th:if="${#fields.hasErrors('street')}" th:errors="*{details.street}"></p>
-                  -->
+                <label>RegDate</label>
+                <input type="number" th:field="*{regDate}" placeholder="Enter date here"
+                       class="form-control"/>
+                <p class="alert alert-danger" th:if="${#fields.hasErrors('regDate')}" th:errors="*{regDate}"></p>
+
             </div>
 
             <div class="form-group">
-                <label>ZipCode</label>
-                <input type="number" th:field="*{details.zipCode}" placeholder="Enter zipCode here"
-                       class="form-control" />
+                <label>Active</label>
+                <input type="text" th:field="*{active}" placeholder="Enter text here"
+                       class="form-control"/>
+                <p class="alert alert-danger" th:if="${#fields.hasErrors('active')}" th:errors="*{active}"></p>
+
             </div>
 
-            <div class="form-group">
-                <label>City</label>
-                <input type="text" th:field="*{details.city}" placeholder="Enter City name here"
-                       class="form-control" />
-            </div>
-
-            <div class="form-group">
-                <label>Home Phone</label>
-                <input type="number" th:field="*{details.homePhone}" placeholder="Enter number here"
-                       class="form-control" />
-            </div>
-
-            <div class="form-group">
-                <label>Cell Phone</label>
-                <input type="number" th:field="*{details.cellPhone}" placeholder="Enter number here"
-                       class="form-control" />
-            </div>
 
             <hr/>
             <button type="submit" class="btn btn-primary btn-block mb-3">Save</button>

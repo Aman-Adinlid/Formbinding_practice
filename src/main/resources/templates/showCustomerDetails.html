@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Details</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+</head>
+<body>
+<div class="container">
+    <br/>
+    <div class="card">
+        <div class="card-header bg-dark text-white-50">
+            <h2>Add Form</h2>
+        </div>
+    </div>
+
+    <div class="card-body">
+
+        <form method="post" th:object="${customerDetails}">
+
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label>DetailsId</label>
+                    <input type="text" th:field="*{detailsId}" placeholder="Enter email Here..."
+                           class="form-control"/>
+                    <!--
+                    <p class="alert alert-danger" th:if="${#fields.hasErrors('email')}"
+                    th:errors="*{detailsId}"></p>
+                    -->
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Street</label>
+                <input type="text" th:field="*{street}" placeholder="Enter street name here"
+                       class="form-control"/>
+                <!--
+                <p class="alert alert-danger" th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></p>
+-->
+
+            </div>
+
+            <div class="form-group">
+                <label>ZipCode</label>
+                <input type="number" th:field="*{zipCode}" placeholder="Enter zipCode here"
+                       class="form-control"/>
+            </div>
+
+            <div class="form-group">
+                <label>City</label>
+                <input type="text" th:field="*{city}" placeholder="Enter City name here"
+                       class="form-control"/>
+            </div>
+
+            <div class="form-group">
+                <label>Home Phone</label>
+                <input type="number" th:field="*{homePhone}" placeholder="Enter number here"
+                       class="form-control"/>
+            </div>
+
+            <div class="form-group">
+                <label>Cell Phone</label>
+                <input type="number" th:field="*{cellPhone}" placeholder="Enter number here"
+                       class="form-control"/>
+            </div>
+        </form>
+    </div>
+
+    <hr/>
+    <button type="submit" class="btn btn-primary btn-block mb-3">Save</button>
+</div>
+
+<div class="card-footer">
+    <button type="submit" class="btn btn-outline-danger">Back</button>
+</div>
+
+<footer th:insert="fragments/footer :: footer_fragment"></footer>
+</body>
+</html>
